@@ -1,35 +1,38 @@
 using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography.Pkcs;
-
-namespace Api_esteban.Models.DataModels;
-
-public enum Level
+namespace Api_esteban.Models.DataModels
 {
-    Basico,
-    Intermedio,
-    Avanzado
-}
 
-public class Course
+public class Course : BaseEntity
 { 
-    [Required, StringLength(30)]
+    [RequiredAttribute, StringLength(50)]
     public string Name { get; set; } = string.Empty;
     
-    [Required, StringLength(280)]
+    [RequiredAttribute, StringLength(280)]
     public string ShortDescription { get; set; } = string.Empty;
     
-    [Required, StringLength(360)]
+    [RequiredAttribute]
     public string LongDescription { get; set; } = string.Empty;
     
-    [Required, StringLength(30)]
+    [RequiredAttribute, StringLength(30)]
     public string TargetAudiences { get; set; } = string.Empty;
     
-    [Required, StringLength(140)]
+    [RequiredAttribute, StringLength(140)]
     public string Goals { get; set; } = string.Empty;
     
-    [Required, StringLength(140)]
+    [RequiredAttribute, StringLength(140)]
     public string Requirements { get; set; } = string.Empty;
 
-    [Required] public Level? Level { get; set; } = null!;
+    [RequiredAttribute] 
+    public Levels Level { get; set; } = Levels.Basic;
 
+    [RequiredAttribute] 
+    public ICollection<Category> Categories { get; set; } = new List<Category>();
+
+    [RequiredAttribute] 
+    
+    public Chapter Chapter { get; set; } = new Chapter();    
+
+    [RequiredAttribute] 
+    public ICollection<Student> Students { get; set; } = new List<Student>();
+    }
 }

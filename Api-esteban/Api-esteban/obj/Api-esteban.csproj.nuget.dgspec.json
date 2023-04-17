@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Esteban\\RiderProjects\\Api-esteban\\Api-esteban\\Api-esteban.csproj": {}
+    "C:\\Users\\Esteban\\RiderProjects\\Api-.NET-University\\Api-esteban\\Api-esteban\\Api-esteban.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Esteban\\RiderProjects\\Api-esteban\\Api-esteban\\Api-esteban.csproj": {
+    "C:\\Users\\Esteban\\RiderProjects\\Api-.NET-University\\Api-esteban\\Api-esteban\\Api-esteban.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Esteban\\RiderProjects\\Api-esteban\\Api-esteban\\Api-esteban.csproj",
+        "projectUniqueName": "C:\\Users\\Esteban\\RiderProjects\\Api-.NET-University\\Api-esteban\\Api-esteban\\Api-esteban.csproj",
         "projectName": "Api-esteban",
-        "projectPath": "C:\\Users\\Esteban\\RiderProjects\\Api-esteban\\Api-esteban\\Api-esteban.csproj",
+        "projectPath": "C:\\Users\\Esteban\\RiderProjects\\Api-.NET-University\\Api-esteban\\Api-esteban\\Api-esteban.csproj",
         "packagesPath": "C:\\Users\\Esteban\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Esteban\\RiderProjects\\Api-esteban\\Api-esteban\\obj\\",
+        "outputPath": "C:\\Users\\Esteban\\RiderProjects\\Api-.NET-University\\Api-esteban\\Api-esteban\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Esteban\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[7.0.4, )"
             },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -84,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

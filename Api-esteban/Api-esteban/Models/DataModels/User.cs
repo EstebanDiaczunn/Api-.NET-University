@@ -4,15 +4,15 @@ namespace Api_esteban.Models.DataModels;
 
 public class User: BaseEntity
 {   
-    [Required, StringLength(50)]
+    [RequiredAttribute, StringLength(50)]
     public string Name { get; set; } = string.Empty;
 
-    [Required, StringLength(100)]
+    [RequiredAttribute, StringLength(100)]
     public string LastName { get; set; } = string.Empty;
 
-    [Required, EmailAddress]
+    [RequiredAttribute, EmailAddress]
     public string Email { get; set; } = string.Empty;
 
-    [Required]
+    [RequiredAttribute]
     public string Password { get; set; } = string.Empty;
 }

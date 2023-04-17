@@ -2,8 +2,22 @@
 
 using Microsoft.EntityFrameworkCore;
 using Api_esteban.DataAccess;
+using Microsoft.Extensions.DependencyInjection;
+
 
 var builder = WebApplication.CreateBuilder(args);
+// 1. Usings to work with entityframework
+
+builder.Services.AddDbContext<UnivesityDBContext>(options =>
+// 1. Usings to work with entityframework
+
+    options.UseSqlServer(builder.Configuration.GetConnectionString("UnivesityDBContext") ?? throw new InvalidOperationException("Connection string 'UnivesityDBContext' not found.")));
+// 1. Usings to work with entityframework
+
+builder.Services.AddDbContext<UniversityDBContext>(options =>
+// 1. Usings to work with entityframework
+
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.")));
 
 // 2. Connection with SQL Server Express
 var connection = builder.Configuration.GetConnectionString("DefaultConnection")!;

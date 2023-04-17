@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Api_esteban.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("[controller]")] //Localhost:
 public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries = new[]
