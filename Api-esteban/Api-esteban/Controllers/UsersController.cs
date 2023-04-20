@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Api_esteban.Models.DataModels;
@@ -39,14 +34,14 @@ namespace Api_esteban.Controllers
           {
               return NotFound();
           }
-            var user = await _context.Users.FindAsync(id);
+          var user = await _context.Users.FindAsync(id);
 
-            if (user == null)
-            {
-                return NotFound();
-            }
+          if (user == null)
+          {
+              return NotFound();
+          }
 
-            return user;
+          return user;
         }
 
         // PUT: api/Users/5
@@ -89,10 +84,10 @@ namespace Api_esteban.Controllers
           {
               return Problem("Entity set 'UnivesityDBContext.User'  is null.");
           }
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+          _context.Users.Add(user);
+          await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+          return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }
 
         // DELETE: api/Users/5

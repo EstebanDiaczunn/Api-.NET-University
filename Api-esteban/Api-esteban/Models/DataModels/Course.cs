@@ -4,35 +4,35 @@ namespace Api_esteban.Models.DataModels
 
 public class Course : BaseEntity
 { 
-    [RequiredAttribute, StringLength(50)]
+    [Required, StringLength(50)]
     public string Name { get; set; } = string.Empty;
     
-    [RequiredAttribute, StringLength(280)]
+    [Required, StringLength(280)]
     public string ShortDescription { get; set; } = string.Empty;
     
-    [RequiredAttribute]
+    [Required]
     public string LongDescription { get; set; } = string.Empty;
     
-    [RequiredAttribute, StringLength(30)]
+    [Required, StringLength(30)]
     public string TargetAudiences { get; set; } = string.Empty;
     
-    [RequiredAttribute, StringLength(140)]
+    [Required, StringLength(140)]
     public string Goals { get; set; } = string.Empty;
     
-    [RequiredAttribute, StringLength(140)]
+    [Required, StringLength(140)]
     public string Requirements { get; set; } = string.Empty;
 
-    [RequiredAttribute] 
+    [Required] 
     public Levels Level { get; set; } = Levels.Basic;
 
-    [RequiredAttribute] 
+    [Required] 
     public ICollection<Category> Categories { get; set; } = new List<Category>();
 
-    [RequiredAttribute] 
+    [Required] 
     
     public Chapter Chapter { get; set; } = new Chapter();    
 
-    [RequiredAttribute] 
+    [Required] 
     public ICollection<Student> Students { get; set; } = new List<Student>();
     }
 }

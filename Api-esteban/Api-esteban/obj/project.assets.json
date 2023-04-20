@@ -11422,11 +11422,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Esteban\\RiderProjects\\Api-.NET-University\\Api-esteban\\Api-esteban\\Api-esteban.csproj",
+      "projectUniqueName": "C:\\Users\\Esteban\\RiderProjects\\Api-.NET-University\\Api-esteban\\Api-esteban\\Api-esteban.csproj",
       "projectName": "Api-esteban",
-      "projectPath": "c:\\Users\\Esteban\\RiderProjects\\Api-.NET-University\\Api-esteban\\Api-esteban\\Api-esteban.csproj",
+      "projectPath": "C:\\Users\\Esteban\\RiderProjects\\Api-.NET-University\\Api-esteban\\Api-esteban\\Api-esteban.csproj",
       "packagesPath": "C:\\Users\\Esteban\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Esteban\\RiderProjects\\Api-.NET-University\\Api-esteban\\Api-esteban\\obj\\",
+      "outputPath": "C:\\Users\\Esteban\\RiderProjects\\Api-.NET-University\\Api-esteban\\Api-esteban\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Esteban\\AppData\\Roaming\\NuGet\\NuGet.Config"

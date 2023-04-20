@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
 // 1. Usings to work with entityframework
 
-builder.Services.AddDbContext<UnivesityDBContext>(options =>
+builder.Services.AddDbContext<UniversityDBContext>(options =>
 // 1. Usings to work with entityframework
 
     options.UseSqlServer(builder.Configuration.GetConnectionString("UnivesityDBContext") ?? throw new InvalidOperationException("Connection string 'UnivesityDBContext' not found.")));

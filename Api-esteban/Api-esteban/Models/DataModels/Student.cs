@@ -3,16 +3,16 @@ namespace Api_esteban.Models.DataModels
 {
     public class Student : BaseEntity
     {
-        [RequiredAttribute]
+        [Required]
         public string Name { get; set; } = string.Empty;
         
-        [RequiredAttribute]
+        [Required]
         public string LastName { get; set; } = string.Empty;
 
-        [RequiredAttribute]
+        [Required]
         public DateTime Dob { get; set; }
 
-        [RequiredAttribute]
+        [Required]
         public ICollection<Course> Courses { get; set; } = new List<Course>();
     }
 }

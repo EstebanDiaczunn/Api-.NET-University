@@ -4,10 +4,10 @@ namespace Api_esteban.Models.DataModels
 {
     public class Category : BaseEntity
     {
-        [RequiredAttribute]
+        [Required]
         public string Name {get; set;} = string.Empty;
         
-        [RequiredAttribute]
+        [Required]
         public ICollection<Course> Courses {get; set;} = new List<Course>();
 
     }

@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Api_esteban.DataAccess;
 using Api_esteban.Models.DataModels;
 
 namespace Api_esteban.Controllers
@@ -13,40 +9,40 @@ namespace Api_esteban.Controllers
     [ApiController]
     public class ChaptersController : ControllerBase
     {
-        private readonly UnivesityDBContext _context;
+        private readonly UniversityDBContext _context;
 
-        public ChaptersController(UnivesityDBContext context)
+        public ChaptersController(UniversityDBContext context)
         {
             _context = context;
         }
 
         // GET: api/Chapters
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Chapter>>> GetChapter()
+        public async Task<ActionResult<IEnumerable<Chapter>>> GetChapters()
         {
-          if (_context.Chapter == null)
+          if (_context.Chapters == null)
           {
               return NotFound();
           }
-            return await _context.Chapter.ToListAsync();
+          return await _context.Chapters.ToListAsync();
         }
 
         // GET: api/Chapters/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Chapter>> GetChapter(int id)
         {
-          if (_context.Chapter == null)
+          if (_context.Chapters == null)
           {
               return NotFound();
           }
-            var chapter = await _context.Chapter.FindAsync(id);
+          var chapter = await _context.Chapters.FindAsync(id);
 
-            if (chapter == null)
-            {
-                return NotFound();
-            }
+          if (chapter == null)
+          {
+              return NotFound();
+          }
 
-            return chapter;
+          return chapter;
         }
 
         // PUT: api/Chapters/5
@@ -85,31 +81,31 @@ namespace Api_esteban.Controllers
         [HttpPost]
         public async Task<ActionResult<Chapter>> PostChapter(Chapter chapter)
         {
-          if (_context.Chapter == null)
+          if (_context.Chapters == null)
           {
-              return Problem("Entity set 'UnivesityDBContext.Chapter'  is null.");
+              return Problem("Entity set 'UniversityDBContext.Chapters'  is null.");
           }
-            _context.Chapter.Add(chapter);
-            await _context.SaveChangesAsync();
+          _context.Chapters.Add(chapter);
+          await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetChapter", new { id = chapter.Id }, chapter);
+          return CreatedAtAction("GetChapter", new { id = chapter.Id }, chapter);
         }
 
         // DELETE: api/Chapters/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteChapter(int id)
         {
-            if (_context.Chapter == null)
+            if (_context.Chapters == null)
             {
                 return NotFound();
             }
-            var chapter = await _context.Chapter.FindAsync(id);
+            var chapter = await _context.Chapters.FindAsync(id);
             if (chapter == null)
             {
                 return NotFound();
             }
 
-            _context.Chapter.Remove(chapter);
+            _context.Chapters.Remove(chapter);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -117,7 +113,7 @@ namespace Api_esteban.Controllers
 
         private bool ChapterExists(int id)
         {
-            return (_context.Chapter?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Chapters?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
