@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Api_esteban.Models.DataModels;
 using Api_esteban.DataAccess;
 
+
 namespace Api_esteban.Controllers
 {
     [Route("api/[controller]")] //Controller for Request to Localhost:7190/api/Users
@@ -27,21 +28,14 @@ namespace Api_esteban.Controllers
         }
 
         // GET: api/Users/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        [HttpGet("{Email}")]
+        public async Task<List<User>> GetUserByEmail(string email)
         {
-          if (_context.Users == null)
-          {
-              return NotFound();
-          }
-          var user = await _context.Users.FindAsync(id);
-
-          if (user == null)
-          {
-              return NotFound();
-          }
-
-          return user;
+            //var user = await _context.Users.FindAsync(id);
+            
+          var userRequest = await Services.SearchByEmail(email);
+            
+          return userRequest;
         }
 
         // PUT: api/Users/5
