@@ -14,8 +14,6 @@ namespace Api_esteban.Models.DataModels
 
         [Required]
         public ICollection<Course> Courses { get; set; } = new List<Course>();
-        
-        [Required]
-        public int Age { get; set; } 
+
     }
 }

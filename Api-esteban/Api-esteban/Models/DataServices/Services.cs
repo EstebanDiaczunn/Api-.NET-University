@@ -25,12 +25,20 @@ public abstract class Services
     }
 
     //Search for students of legal age
-    public static async Task<IEnumerable<Student>> SearchLegalAge(int age)
+    public static async Task<List<Student>> SearchLegalAge()
     {
         if (_context?.Students != null)
         {
-            var LegalAge = await _context.Students.Where(s => s.Age >= age).ToListAsync();
-            return LegalAge;
+            int legalAge = 18;
+            
+            DateTime currentDate = DateTime.Today;
+            
+            var ListOfStudents = await _context.Students.Where(s => (currentDate.Year - s.Dob.Year > legalAge) ||
+                                                                   ((currentDate.Year - s.Dob.Year == legalAge) &&
+                                                                    (s.Dob.Month < currentDate.Month ||
+                                                                     (s.Dob.Month == currentDate.Month && s.Dob.Day <= currentDate.Day))))
+                .ToListAsync();
+            return ListOfStudents;  
         }
 
         return null;
@@ -41,6 +49,7 @@ public abstract class Services
     {
         if (_context?.Students != null)
         {
+            
             var studentsWithCourses = await _context.Students.Include(s => s.Courses).ToListAsync();
             return studentsWithCourses;
         }
