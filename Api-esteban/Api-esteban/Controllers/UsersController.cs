@@ -29,13 +29,13 @@ namespace Api_esteban.Controllers
 
         // GET: api/Users/5
         [HttpGet("{Email}")]
-        public async Task<List<User>> GetUserByEmail(string email)
+        public async Task<User?> GetUserByEmail(string email)
         {
-            //var user = await _context.Users.FindAsync(id);
+            var user = await _context.Users.FindAsync(email);
             
-          var userRequest = await Services.SearchByEmail(email);
+          //var userRequest = await Services.SearchByEmail(email);
             
-          return userRequest;
+          return user;
         }
 
         // PUT: api/Users/5

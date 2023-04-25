@@ -1,13 +1,14 @@
 using Api_esteban.DataAccess;
+using Api_esteban.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api_esteban.Models.DataModels;
 
-public abstract class Services
+public class StudentsServices : IStudentsServices
 {
     private static UniversityDBContext? _context;
 
-    public Services(UniversityDBContext context)
+    public StudentsServices(UniversityDBContext context)
     {
         _context = context;
     }
@@ -91,7 +92,17 @@ public abstract class Services
             }
             return null;
     }
-    
+
+        //TODO: resolve methods
+    public IEnumerable<Student> GetStudentsWithCourses()
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<Student> GetStudentsWithNoCourses()
+    {
+        throw new NotImplementedException();
+    }
 }
 
 
