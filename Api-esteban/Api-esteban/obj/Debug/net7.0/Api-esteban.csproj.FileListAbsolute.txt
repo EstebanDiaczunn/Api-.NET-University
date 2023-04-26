@@ -285,7 +285,6 @@ C:\Users\Esteban\RiderProjects\Api-.NET-University\Api-esteban\Api-esteban\bin\D
 C:\Users\Esteban\RiderProjects\Api-.NET-University\Api-esteban\Api-esteban\bin\Debug\net7.0\Azure.Core.dll
 C:\Users\Esteban\RiderProjects\Api-.NET-University\Api-esteban\Api-esteban\bin\Debug\net7.0\Azure.Identity.dll
 C:\Users\Esteban\RiderProjects\Api-.NET-University\Api-esteban\Api-esteban\bin\Debug\net7.0\Humanizer.dll
-C:\Users\Esteban\RiderProjects\Api-.NET-University\Api-esteban\Api-esteban\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Esteban\RiderProjects\Api-.NET-University\Api-esteban\Api-esteban\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\Esteban\RiderProjects\Api-.NET-University\Api-esteban\Api-esteban\bin\Debug\net7.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Esteban\RiderProjects\Api-.NET-University\Api-esteban\Api-esteban\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -582,3 +581,4 @@ C:\Users\Esteban\RiderProjects\Api-.NET-University\Api-esteban\Api-esteban\bin\D
 C:\Users\Esteban\RiderProjects\Api-.NET-University\Api-esteban\Api-esteban\bin\Debug\net7.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\Esteban\RiderProjects\Api-.NET-University\Api-esteban\Api-esteban\obj\Debug\net7.0\Api-esteban.RazorAssemblyInfo.cache
 C:\Users\Esteban\RiderProjects\Api-.NET-University\Api-esteban\Api-esteban\obj\Debug\net7.0\Api-esteban.RazorAssemblyInfo.cs
+C:\Users\Esteban\RiderProjects\Api-.NET-University\Api-esteban\Api-esteban\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

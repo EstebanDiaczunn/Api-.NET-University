@@ -4,9 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Api_esteban.DataAccess;
 using Api_esteban.Models.DataModels;
 using Api_esteban.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 builder.Services.AddDbContext<UniversityDBContext>(options =>
 
@@ -22,6 +25,13 @@ var connection = builder.Configuration.GetConnectionString("DefaultConnection")!
 builder.Services.AddDbContext<UniversityDBContext>(options => options.UseSqlServer(connection));
 
 // Add services to the container.
+
+
+// ADD service of JWT Auth
+//builder.Services.AddJwtTokenServices(builder.Configuration);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer();
 
 builder.Services.AddControllers();
 
