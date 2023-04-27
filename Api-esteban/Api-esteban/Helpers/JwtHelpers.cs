@@ -30,10 +30,10 @@ public static class JwtHelpers
         return  claims;
     }
 
-    public static IEnumerable<Claim> GetClaims(this UserTokens userAcounts, out Guid Id)
+    public static IEnumerable<Claim> GetClaims(this UserTokens userAccounts, out Guid Id)
     {
         Id = Guid.NewGuid();
-        return  GetClaims(userAcounts, Id);
+        return  GetClaims(userAccounts, Id);
     }
     
     public static UserTokens GenTokenKey(UserTokens model, JwtSettings jwtSettings)
@@ -47,32 +47,35 @@ public static class JwtHelpers
             }
             
             //Obtain SECRET KEY
-            var key = Encoding.ASCII.GetBytes(jwtSettings.IsUserSigningKey) ;
+            if (jwtSettings.IsUserSigningKey != null)
+            {
+                var key = Encoding.ASCII.GetBytes(jwtSettings.IsUserSigningKey) ;
 
-            Guid Id;
+                Guid Id;
             
-            //Expires in 1 Days
-            DateTime expireTime = DateTime.UtcNow.AddDays(1);
+                //Expires in 1 Days
+                DateTime expireTime = DateTime.UtcNow.AddDays(1);
             
-            //validity of our token
-            userToken.Validity = expireTime.TimeOfDay;
+                //validity of our token
+                userToken.Validity = expireTime.TimeOfDay;
             
-            //GENERATE OUR JWT
-            var JwToken = new JwtSecurityToken(
-                issuer: jwtSettings.ValidIsUser,
-                audience: jwtSettings.ValidAudience,
-                claims: GetClaims(model, out Id),
-                notBefore: new DateTimeOffset(DateTime.Now).DateTime,
-                expires: new DateTimeOffset(expireTime).DateTime,
-                signingCredentials: new SigningCredentials(
-                    new SymmetricSecurityKey(key),
-                    SecurityAlgorithms.HmacSha256));
+                //GENERATE OUR JWT
+                var JwToken = new JwtSecurityToken(
+                    issuer: jwtSettings.ValidIsUser,
+                    audience: jwtSettings.ValidAudience,
+                    claims: GetClaims(model, out Id),
+                    notBefore: new DateTimeOffset(DateTime.Now).DateTime,
+                    expires: new DateTimeOffset(expireTime).DateTime,
+                    signingCredentials: new SigningCredentials(
+                        new SymmetricSecurityKey(key),
+                        SecurityAlgorithms.HmacSha256));
             
-            userToken.Token = new JwtSecurityTokenHandler().WriteToken(JwToken);
-            userToken.UserName = model.UserName;
-            userToken.Id = model.Id;
-            userToken.GuidId = Id;
-            
+                userToken.Token = new JwtSecurityTokenHandler().WriteToken(JwToken);
+                userToken.UserName = model.UserName;
+                userToken.Id = model.Id;
+                userToken.GuidId = Id;
+            }
+
             return userToken;
 
         }

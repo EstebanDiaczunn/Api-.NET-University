@@ -15,4 +15,7 @@ public class User: BaseEntity
 
     [Required]
     public string Password { get; set; } = string.Empty;
+    
+    [Required]
+    public virtual ICollection<UserGroup>? UserGroups { get; set; }
 }
