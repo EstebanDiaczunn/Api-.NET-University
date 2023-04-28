@@ -15,7 +15,5 @@ public class UniversityDBContext : DbContext
     public DbSet<Chapter>? Chapters{ get; set; }
     public DbSet<Category>? Categories{ get; set; }
     public DbSet<Student>? Students{ get; set; }
-    public  DbSet<Group>? Groups{ get; set; }
-    public DbSet<UserGroup>? UserGroups{ get; set; }
-    //public DbSet<>? Teachers{ get; set; 
+
 }

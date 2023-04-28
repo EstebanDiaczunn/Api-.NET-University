@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Server.HttpSys;
 
 namespace Api_esteban.Controllers
@@ -23,26 +24,7 @@ namespace Api_esteban.Controllers
                         _context = context;
                         this._jwtSettings = _jwtSettings;
                 }
-                //Example users
-                // TODO: Change by real users in DB
-                
-                // private IEnumerable<User> Logins = new List<User>()
-                // {
-                //         new User
-                //         {
-                //                 Id = 8,
-                //                 Email = "estebandiaczun@gmail.com",
-                //                 Name = "Admin",
-                //                 Password = "Admin"
-                //         },
-                //         new User
-                //         {
-                //                 Id = 9,
-                //                 Email = "estebandiaczun@gmail.com",
-                //                 Name = "user1",
-                //                 Password = "pepe"
-                //         }
-                // };
+
 
                 [HttpPost]
                 public async Task<IActionResult> Login(UserLogins user)
@@ -52,14 +34,19 @@ namespace Api_esteban.Controllers
                                 var Token = new UserTokens();
 
                                 var Logins = _context.Users.ToList();
-
+                                
+                                //Verify if user is user from model and password 
+                                
                                 var Valid = Logins.Any(User =>
-                                        User.Name.Equals(user.UserName, StringComparison.OrdinalIgnoreCase));
+                                        User.Name.Equals(user.UserName, StringComparison.OrdinalIgnoreCase)
+                                        &&User.Password.Equals(user.Password, StringComparison.OrdinalIgnoreCase));
+                                
                                 if (Valid)
                                 {
                                         var User = Logins.FirstOrDefault(User =>
                                                 User.Name.Equals(user.UserName,
                                                         StringComparison.OrdinalIgnoreCase));
+                                        
 
                                         Token = JwtHelpers.GenTokenKey(new UserTokens
                                         {

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Api_esteban.Models.DataModels;
 using Api_esteban.DataAccess;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace Api_esteban.Controllers
@@ -19,6 +20,7 @@ namespace Api_esteban.Controllers
 
         // GET: api/Users
         [HttpGet]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult<IEnumerable<User>>> GetUser()
         {
             if (_context.Users == null){
@@ -40,7 +42,9 @@ namespace Api_esteban.Controllers
 
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> PutUser(int id, User user)
         {
             if (id != user.Id)
@@ -86,6 +90,7 @@ namespace Api_esteban.Controllers
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             if (_context.Users == null)

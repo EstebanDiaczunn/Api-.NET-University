@@ -7,15 +7,22 @@ public class User: BaseEntity
     [Required, StringLength(50)]
     public string Name { get; set; } = string.Empty;
 
-    [Required, StringLength(100)]
+    [StringLength(100)]
     public string LastName { get; set; } = string.Empty;
 
-    [Required, EmailAddress]
+    [EmailAddress]
     public string Email { get; set; } = string.Empty;
 
     [Required]
     public string Password { get; set; } = string.Empty;
+
+    [Required] public Roles? Role { get; set; } = null!;
     
-    [Required]
-    public virtual ICollection<UserGroup>? UserGroups { get; set; }
+    public enum Roles
+    {
+        user,
+        administrator
+    }
+
+
 }

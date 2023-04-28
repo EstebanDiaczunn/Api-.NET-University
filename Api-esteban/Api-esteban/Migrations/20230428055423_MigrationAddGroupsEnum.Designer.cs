@@ -4,6 +4,7 @@ using Api_esteban.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Api_esteban.Migrations
 {
     [DbContext(typeof(UniversityDBContext))]
-    partial class UniversityDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230428055423_MigrationAddGroupsEnum")]
+    partial class MigrationAddGroupsEnum
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
